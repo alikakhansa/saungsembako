@@ -3,6 +3,7 @@
    <head>
       <title>Saung Sembako</title>
       <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mortezaom/google-sans-cdn@master/fonts.css" />
    </head>
    <body>
       <header>
