@@ -1,4 +1,16 @@
-
+<style>
+   .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 20px;
+   }
+   .text {
+      grid-column: 1;
+   }
+   .card:hover {
+      background-color: #ebeae4;
+   }
+</style>
      <?php  
       $QUERY = mysqli_query ($koneksi, "SELECT * FROM users WHERE USERNAME='".$_SESSION['USERNAME']."'");
       while ($DATA=mysqli_fetch_array($QUERY)) 
@@ -13,129 +25,111 @@
 
             }else if ($_SESSION['LEVEL']== "KASIR") 
             {
-               Echo "
-            <div class='alert alert-info alert-dismissible fade show' role='alert'>
-               
-                <h3>$DATA2[EMAIL]</h3>
-                <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-                    <span aria-hidden='true'>&times;</span>
-                </button>
-            </div>
+               echo "
+                <div class='alert alert-info alert-dismissible fade show' role='alert' style='width: 95%; margin: 10px auto;'>
+                     <h3>$DATA2[EMAIL]</h3>
+                  </div>
 
-                <div class='row'>
-                    <div class='col-md-12 col-xl-3'>
+                <div class='row' style='width: 96%; margin: 10px auto;'>
+                     <div class='col-md-12 col-xl-3' style='margin-top:20px;'>
                         <div class='card m-b-30'>
-                            <div class='card-body '>
-                                <div class='d-flex row'>
-                                    <div class='col-3 align-self-center'>
-                                        <div class='round'>
-                                            <i class='mdi mdi-account-multiple-plus text-white'></i>
-                                        </div>
-                                    </div>
-                                    <div class='col-6 ml-auto align-self-center text-center'>
-                                        <div class='m-l-10 text-white-50 float-right'>
-                                            <h5 class='mt-0 round-inner'>15321</h5>
-                                            <p class='mb-0 '>Transaksi</p>                                                                 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                           <div class='card-body'>
+                              <div class='container' style='text-align:center;'>
+                                 <div class='text'>
+                                    <p style='margin-top: 5px; font-size: 18px;'>Transaksi</p>
+                                 </div>
+                                 <div>
+                                    <h2 style='font-family: 'Slabserif', serif; font-size: 24px;'>123</h2>
+                                 </div>
+                              </div>
+                           </div>
                         </div>
+                     </div>
                     </div>
 
                ";
-           }else if ($_SESSION['LEVEL']== "PEMILIK") 
-            {
-               Echo "
-            <div class='alert alert-info alert-dismissible fade show' role='alert'>
-               
-                <h3>$DATA2[EMAIL]</h3>
-                <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-                    <span aria-hidden='true'>&times;</span>
-                </button>
-            </div>
-
-                <div class='row'>
-                    <div class='col-md-12 col-xl-3'>
+           }else if ($_SESSION['LEVEL'] == "PEMILIK") {
+               echo "
+                  <div class='alert alert-info alert-dismissible fade show' role='alert' style='width: 95%; margin: 10px auto;'>
+                     <h3>$DATA2[EMAIL]</h3>
+                  </div>
+   
+                  <div class='row' style='width: 96%; margin: 10px auto;'>
+                     <div class='col-md-12 col-xl-3' style='margin-top:20px;'>
                         <div class='card m-b-30'>
-                            <div class='card-body '>
-                                <div class='d-flex row'>
-                                    <div class='col-3 align-self-center'>
-                                        <div class='round'>
-                                            <i class='mdi mdi-account-multiple-plus text-white'></i>
-                                        </div>
-                                    </div>
-                                    <div class='col-6 ml-auto align-self-center text-center'>
-                                        <div class='m-l-10 text-white-50 float-right'>
-                                            <h5 class='mt-0 round-inner'>15321</h5>
-                                            <p class='mb-0 '>DATA BARANG</p>                                                                 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                           <div class='card-body'>
+                              <div class='container' style='text-align:center;'>
+                                 <div class='text'>
+                                    <p style='margin-top: 5px; font-size: 18px;'>Data Barang</p>
+                                 </div>
+                                 <div>
+                                    <h2 style='font-family: 'Slabserif', serif; font-size: 24px;'>123</h2>
+                                 </div>
+                              </div>
+                           </div>
                         </div>
-                    </div>
-
-                    <div class='col-md-12 col-xl-3'>
+                     </div>
+   
+                     <div class='col-md-12 col-xl-3' style='margin-top:20px;'>
                         <div class='card m-b-30'>
-                            <div class='card-body '>
-                                <div class='d-flex row'>
-                                    <div class='col-3 align-self-center'>
-                                        <div class='round'>
-                                            <i class='mdi mdi-google-physical-web text-primary'></i>
-                                        </div>
-                                    </div>
-                                    <div class='col-6 ml-auto align-self-center text-center'>
-                                        <div class='m-l-10 text-white-50 float-right'>
-                                            <h5 class='mt-0 round-inner'>822</h5>
-                                            <p class='mb-0 '>DATA SISWA </p>                                                                 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                           <div class='card-body'>
+                              <div class='container' style='text-align:center;'>
+                                 <div class='text'>
+                                    <p style='margin-top: 5px; font-size: 18px;'>Jenis Barang</p>
+                                 </div>
+                                 <div>
+                                    <h2 style='font-family: 'Slabserif', serif; font-size: 24px;'>123</h2>
+                                 </div>
+                              </div>
+                           </div>
                         </div>
-                    </div>
-
-                    <div class='col-md-12 col-xl-3'>
+                     </div>
+   
+                     <div class='col-md-12 col-xl-3' style='margin-top:20px;'>
                         <div class='card m-b-30'>
-                            <div class='card-body '>
-                                <div class='d-flex row'>
-                                    <div class='col-3 align-self-center'>
-                                        <div class='round'>
-                                            <i class='mdi mdi-basket text-white'></i>
-                                        </div>
-                                    </div>
-                                    <div class='col-6 ml-auto align-self-center text-center'>
-                                        <div class='m-l-10 text-white-50 float-right'>
-                                            <h5 class='mt-0 round-inner'>6487</h5>
-                                            <p class='mb-0 '>PEMINJAMAN</p>                                                                 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                           <div class='card-body'>
+                              <div class='container' style='text-align:center;'>
+                                 <div class='text'>
+                                    <p style='margin-top: 5px; font-size: 18px;'>User</p>
+                                 </div>
+                                 <div>
+                                    <h2 style='font-family: 'Slabserif', serif; font-size: 24px;'>123</h2>
+                                 </div>
+                              </div>
+                           </div>
                         </div>
-                    </div>
-                     <div class='col-md-12 col-xl-3'>
+                     </div>
+   
+                     <div class='col-md-12 col-xl-3' style='margin-top:20px;'>
                         <div class='card m-b-30'>
-                            <div class='card-body '>
-                                <div class='d-flex row'>
-                                    <div class='col-3 align-self-center'>
-                                        <div class='round'>
-                                            <i class='mdi mdi-basket text-white'></i>
-                                        </div>
-                                    </div>
-                                    <div class='col-6 ml-auto align-self-center text-center'>
-                                        <div class='m-l-10 text-white-50 float-right'>
-                                            <h5 class='mt-0 round-inner'>6487</h5>
-                                            <p class='mb-0 '>PENGEMBALIAN</p>                                                                 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                           <div class='card-body'>
+                              <div class='container' style='text-align:center;'>
+                                 <div class='text'>
+                                    <p style='margin-top: 5px; font-size: 18px;'>Total Transaksi juni</p>
+                                 </div>
+                                 <div>
+                                    <h2 style='font-family: 'Slabserif', serif; font-size: 24px;'>123</h2>
+                                 </div>
+                              </div>
+                           </div>
                         </div>
-                    </div>
-
-               ";
+                     </div>
+   
+                     <div class='col-md-12 col-xl-3' style='margin-top:20px;'>
+                        <div class='card m-b-30'>
+                           <div class='card-body'>
+                              <div class='container' style='text-align:center;'>
+                                 <div class='text'>
+                                    <p style='margin-top: 5px; font-size: 18px;'>Transaksi Terbanyak</p>
+                                 </div>
+                                 <div>
+                                    <h2 style='font-family: 'Slabserif', serif; font-size: 24px;'>123</h2>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  ";
             
             }
         }
