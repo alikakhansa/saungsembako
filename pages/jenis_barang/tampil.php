@@ -2,8 +2,8 @@
    <div class="col-md-12">
       <div class="card m-b-30">
          <div class="card-body table-responsive" style="width: 100%">
-            <h5 class="header-title" style="font-size: 20px; margin-bottom: 20px;">DAFTAR BARANG</h5>
-            <a href="?page=barang&aksi=tambah">
+            <h5 class="header-title" style="font-size: 20px; margin-bottom: 20px;">DAFTAR DATA JENIS BARANG</h5>
+            <a href="?page=jenis_barang&aksi=tambah">
             <button type="button" class="btn btn-info"><i class="fas fa-plus"></i> Tambah</button>
             </a>
             <br><br>
@@ -25,33 +25,26 @@
                <thead>
                   <tr>
                      <th style="color: black;">No</th>
-                     <th style="color: black;">Nama Barang</th>
-                     <th style="color: black;">Harga</th>
-                     <th style="color: black;">Kategori</th>
-                     <th style="color: black;">Gambar</th>
+                     <th style="color: black;">Keterangan</th>
                      <th style="color: black;">Aksi</th>
                   </tr>
                </thead>
                <tbody>
-                  <?php
-                     include '../inc/koneksi.php';
-                     $query = mysqli_query($koneksi, "SELECT b.ID_BARANG, b.NAMA, b.HARGA, jb.KETERANGAN 'KATEGORI', b.IMG FROM `barang` b INNER JOIN `jenis_barang` jb ON b.ID_JENIS = jb.ID_JENIS")
-                         or die(mysqli_error($koneksi));
-                     
+                       <?php
+                       include '../inc/koneksi.php';
+								$sql = mysqli_query($koneksi, "SELECT * FROM `jenis_barang`") or die(mysqli_error($koneksi));
+   
                      $no = 1;
                      
-                     while ($data = mysqli_fetch_assoc($query)) {
+                    	while($data = mysqli_fetch_assoc($sql)){
                      ?>
                   <tr>
                      <td><?php echo $no; ?></td>
-                     <td><?php echo $data['NAMA']; ?></td>
-                     <td><?php echo $data['HARGA']; ?></td>
-                     <td><?php echo $data['KATEGORI']; ?></td>
-                     <td><img src="../pages/barang/img/<?php echo $data['IMG']; ?>" width="70"></td>
+                     <td><?php echo $data['KETERANGAN']; ?></td>
                      <td>
-                        <a href="index.php?page=barang&aksi=edit&id=<?php echo $data['ID_BARANG'] ?>" class="btn btn-warning btn-xs"><i class="fas fa-edit"></i> Edit</a>
-                        <a href="../pages/barang/hapus.php?ID_BARANG=<?php echo $data['ID_BARANG'] ?>" class="btn btn-danger tom" onclick="return confirm('Yakin ingin menghapus data ini?')"><i class="fas fa-trash"></i> Delete</a>
-                     </td>
+                        <a href="index.php?page=jenis_barang&aksi=edit&id=<?php echo $data['ID_JENIS'] ?>" class="btn btn-warning btn-xs"><i class="fas fa-edit"></i> Edit</a>
+                        <a href="../pages/jenis_barang/hapus.php?ID_JENIS=<?php echo $data['ID_JENIS'] ?>" class="btn btn-danger tom" onclick="return confirm('Yakin ingin menghapus data ini?')"><i class="fas fa-trash"></i> Delete</a>
+                    </td>
                   </tr>
                   <?php
                      $no++;
@@ -126,4 +119,4 @@
       </div>
    </div>
 </div>
-</div>
+</div>			

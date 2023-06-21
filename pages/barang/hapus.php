@@ -3,7 +3,7 @@
 ob_start();
 include '../../inc/koneksi.php';
 
-$del = mysqli_query($koneksi,"DELETE barang.*, JENIS_BARANG FROM barang INNER JOIN JENIS_BARANG on JENIS_BARANG.ID_JENIS = barang.ID_JENIS WHERE ID_BARANG = '$_GET[ID_BARANG]'")
+$del = mysqli_query($koneksi,"DELETE FROM barang WHERE ID_BARANG = '$_GET[ID_BARANG]'")
 
 or die(mysqli_error($koneksi));
 
