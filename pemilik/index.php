@@ -117,10 +117,11 @@
                <a href="?page=jenis_barang" <?php if ($PAGE=="jenis_barang") { ?> class="active" <?php  } ?>><i class="fa fa-user"></i> <span>Jenis Barang</span></a>
                <a href="?page=user" <?php if ($PAGE=="user") { ?> class="active" <?php  } ?>><i class="fa fa-user"></i> <span>User</span></a>
                <div class="dropdown">
-                  <a href="#" style="margin-top: 50px;">Laporan</a>
+                  <a href="#" style="margin-top: 50px;">Transaksi</a>
                   <div class="dropdown-content">
-                     <a href="../laporan/Belanja Pengunjung.php" target="_blank">Laporan Belanja</a>
-                     <a href="../laporan/Penerimaan Toko.php" target="_blank">Laporan Penerimaan</a>
+                     <a href="#" target="_blank">Riwayat Transaksi</a>
+                     <a href="#" target="_blank">Cetak Transaksi</a>
+                     <a href="#" target="_blank">Cetak Pendapatan</a>
                   </div>
                </div>
             </div>
