@@ -11,6 +11,20 @@
       background-color: #ebeae4;
    }
 </style>
+
+<!-- Query Statistik -->
+<?php
+$query_statistik1   = mysqli_query($koneksi,"SELECT count(*) AS total_barang FROM barang");
+$data_statistik1    = mysqli_fetch_array($query_statistik1);
+$query_statistik2   = mysqli_query($koneksi,"SELECT count(*) AS total_jenis_barang FROM jenis_barang");
+$data_statistik2    = mysqli_fetch_array($query_statistik2);
+$query_statistik3   = mysqli_query($koneksi,"SELECT count(*) AS total_user FROM users");
+$data_statistik3    = mysqli_fetch_array($query_statistik3);
+$query_statistik4   = mysqli_query($koneksi,"SELECT count(*) AS total_transaksi FROM transaksi");
+$data_statistik4    = mysqli_fetch_array($query_statistik4);
+?>
+<!-- /Query Statistik -->
+
 <?php  
 $QUERY = mysqli_query($koneksi, "SELECT * FROM users WHERE USERNAME='".$_SESSION['USERNAME']."'");
 while ($DATA = mysqli_fetch_array($QUERY)) {
@@ -34,7 +48,7 @@ while ($DATA = mysqli_fetch_array($QUERY)) {
                               <p style='margin-top: 5px; font-size: 18px;'>Data Barang</p>
                            </div>
                            <div>
-                              <h2 style='font-family: \"Slabserif\", serif; font-size: 24px;'>123</h2>
+                              <h2 style='font-family: \"Slabserif\", serif; font-size: 24px;'>".$data_statistik1['total_barang']."</h2>
                            </div>
                         </div>
                      </div>
@@ -49,7 +63,7 @@ while ($DATA = mysqli_fetch_array($QUERY)) {
                               <p style='margin-top: 5px; font-size: 18px;'>Jenis Barang</p>
                            </div>
                            <div>
-                              <h2 style='font-family: \"Slabserif\", serif; font-size: 24px;'>123</h2>
+                              <h2 style='font-family: \"Slabserif\", serif; font-size: 24px;'>".$data_statistik2['total_jenis_barang']."</h2>
                            </div>
                         </div>
                      </div>
@@ -64,7 +78,7 @@ while ($DATA = mysqli_fetch_array($QUERY)) {
                               <p style='margin-top: 5px; font-size: 18px;'>User</p>
                            </div>
                            <div>
-                              <h2 style='font-family: \"Slabserif\", serif; font-size: 24px;'>123</h2>
+                              <h2 style='font-family: \"Slabserif\", serif; font-size: 24px;'>".$data_statistik3['total_user']."</h2>
                            </div>
                         </div>
                      </div>
@@ -116,7 +130,7 @@ while ($DATA = mysqli_fetch_array($QUERY)) {
                               <p style='margin-top: 5px; font-size: 18px;'>Transaksi</p>
                            </div>
                            <div>
-                              <h2 style='font-family: \"Slabserif\", serif; font-size: 24px; margin-top: 5px;'>123</h2>
+                              <h2 style='font-family: \"Slabserif\", serif; font-size: 24px; margin-top: 5px;'>".$data_statistik4['total_transaksi']."</h2>
                            </div>
                         </div>
                      </div>
