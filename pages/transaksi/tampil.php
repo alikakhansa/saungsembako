@@ -26,48 +26,43 @@
   </style>
 </head>
 <body>
+    <?php 
+    include '../inc/koneksi.php';
+    $QUERY_SELECT_TRANSAKSI = mysqli_query($koneksi, "SELECT ID_TRANSAKSI 'ID', TANGGAL, COALESCE(TOTAL, 0) 'TOTAL', STATUS FROM `transaksi` WHERE USERNAME = '".$_SESSION['USERNAME']."' ORDER BY ID_TRANSAKSI ASC;");
+    ?>
   <div class="container">
     <div class="row">
-      <div class="col-md-6">
         <div class="transaction-box">
-          <h2 class="transaction-title" style="margin-bottom: 20px;">Daftar Transaksi</h2>
-          <button class="btn btn-primary" id="mulaiTransaksi" style="margin-bottom: 20px;">Mulai Transaksi</button>
+          <h2 class="transaction-title" style="margin-bottom: 20px;">Daftar Transaksi (<?php echo ucfirst($_SESSION['USERNAME'])?>)</h2>
+          <a class="btn btn-primary" id="mulaiTransaksi" style="margin-bottom: 20px; color: white;" href="../pages/transaksi/create_transaksi.php">Mulai Transaksi</a>
           <table>
             <thead>
               <tr>
                 <th>Tanggal</th>
                 <th>Total</th>
-                <th>Jumlah Barang</th>
                 <th>Status</th>
+                <th>Detail</th>
               </tr>
             </thead>
             <tbody>
+              <?php
+                while($data = mysqli_fetch_assoc($QUERY_SELECT_TRANSAKSI)){
+              ?>
+              
               <tr>
-                <td>01/01/2023</td>
-                <td>$100</td>
-                <td>5</td>
-                <td>Selesai</td>
+                <td><?php echo $data['TANGGAL'];?></td>
+                <td>Rp<?php echo $data['TOTAL'];?></td>
+                <td><?php echo $data['STATUS'];?></td>
+                <td><a href="index.php?page=transaksi&aksi=detail&id=<?php echo $data['ID'];?>">Buka</a></td>
+              </a>
               </tr>
-              <tr>
-                <td>02/01/2023</td>
-                <td>$150</td>
-                <td>7</td>
-                <td>Selesai</td>
-              </tr>
+              <?php
+                }
+            ?>
             </tbody>
           </table>
-        </div>
-      </div>
-      <div id="transaksiBox" class="col-md-6" style="display: none;">
-        <?php include 'detailtransaksi.php'; ?>
       </div>
     </div>
   </div>
-
-  <script>
-    document.getElementById("mulaiTransaksi").addEventListener("click", function() {
-      document.getElementById("transaksiBox").style.display = "block";
-    });
-  </script>
 </body>
 </html>
