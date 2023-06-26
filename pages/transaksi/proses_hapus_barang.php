@@ -12,7 +12,7 @@ echo $query_delete;
 $delete = mysqli_query($koneksi, $query_delete);
 
 if ($delete) {
-    $query_refresh = "UPDATE `transaksi` SET `TOTAL` = (SELECT SUM(HARGA * KUANTITAS) FROM `transaksi_barang` WHERE ID_TRANSAKSI = $ID) WHERE ID_TRANSAKSI = $ID";
+    $query_refresh = "UPDATE `transaksi` SET `TOTAL` = (SELECT SUM(HARGA * KUANTITAS) FROM `transaksi_barang` WHERE ID_TRANSAKSI = $IDT) WHERE ID_TRANSAKSI = $IDT";
     $refresh = mysqli_query($koneksi, $query_refresh);
     echo '<script>alert("Berhasil menghapus barang."); document.location="../../kasir/index.php?page=transaksi&aksi=detail&id='.$IDT.'";</script>';
 } else {
