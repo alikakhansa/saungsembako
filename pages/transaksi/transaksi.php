@@ -11,6 +11,9 @@
 		case 'detail':
 			include 'detail.php';
 			break;
+		case 'detailtransaksi':
+			include 'detailtransaksi.php';
+			break;
 		default:
 			include 'tampil.php';
 			break;
