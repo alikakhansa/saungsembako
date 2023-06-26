@@ -22,6 +22,10 @@ $query_statistik3   = mysqli_query($koneksi,"SELECT count(*) AS total_user FROM 
 $data_statistik3    = mysqli_fetch_array($query_statistik3);
 $query_statistik4   = mysqli_query($koneksi,"SELECT count(*) AS total_transaksi FROM transaksi");
 $data_statistik4    = mysqli_fetch_array($query_statistik4);
+$query_user_transaksi = mysqli_query($koneksi, "SELECT USERNAME, COUNT(*) 'TOTAL' FROM transaksi WHERE STATUS = 'DIBAYAR'  AND YEAR(TANGGAL) = YEAR(NOW()) AND MONTH(TANGGAL) = MONTH(NOW()) GROUP BY USERNAME ORDER BY COUNT(*) DESC");
+$data_user_transaksi = mysqli_fetch_array($query_user_transaksi);
+$query_total_transaksi = mysqli_query($koneksi, "SELECT COUNT(*) 'TOTAL', COALESCE(SUM(TOTAL)) 'PEMASUKAN' FROM `transaksi` WHERE STATUS = 'DIBAYAR' AND YEAR(TANGGAL) = YEAR(NOW()) AND MONTH(TANGGAL) = MONTH(NOW())");
+$data_total_transaksi = mysqli_fetch_array($query_total_transaksi);
 ?>
 <!-- /Query Statistik -->
 
@@ -45,10 +49,10 @@ while ($DATA = mysqli_fetch_array($QUERY)) {
                      <div class='card-body'>
                         <div class='container' style='text-align:center;'>
                            <div class='text'>
-                              <p style='margin-top: 5px; font-size: 18px;'>Data Barang</p>
+                              <p style='margin-top: 5px; font-size: 18px;'>Total Barang</p>
                            </div>
                            <div>
-                              <h2 style='font-family: \"Slabserif\", serif; font-size: 24px;'>".$data_statistik1['total_barang']."</h2>
+                              <p style='font-family: sans-serif; font-size: 22px;'>".$data_statistik1['total_barang']." Barang</p>
                            </div>
                         </div>
                      </div>
@@ -60,10 +64,10 @@ while ($DATA = mysqli_fetch_array($QUERY)) {
                      <div class='card-body'>
                         <div class='container' style='text-align:center;'>
                            <div class='text'>
-                              <p style='margin-top: 5px; font-size: 18px;'>Jenis Barang</p>
+                              <p style='margin-top: 5px; font-size: 18px;'>Total Jenis Barang</p>
                            </div>
                            <div>
-                              <h2 style='font-family: \"Slabserif\", serif; font-size: 24px;'>".$data_statistik2['total_jenis']."</h2>
+                           <p style='font-family: sans-serif; font-size: 22px;'>".$data_statistik2['total_jenis']." Jenis</p>
                            </div>
                         </div>
                      </div>
@@ -75,32 +79,32 @@ while ($DATA = mysqli_fetch_array($QUERY)) {
                      <div class='card-body'>
                         <div class='container' style='text-align:center;'>
                            <div class='text'>
-                              <p style='margin-top: 5px; font-size: 18px;'>User</p>
+                              <p style='margin-top: 5px; font-size: 18px;'>User Terdaftar</p>
                            </div>
                            <div>
-                              <h2 style='font-family: \"Slabserif\", serif; font-size: 24px;'>".$data_statistik3['total_user']."</h2>
+                           <p style='font-family: sans-serif; font-size: 22px;'>".$data_statistik3['total_user']." User</p>
                            </div>
                         </div>
                      </div>
                   </div>
                </div>
 
-               <div class='col-md-12 col-xl-3' style='margin-top:20px;'>
+               <div class='col-md-12 col-xl-6' style='margin-top:20px;'>
                   <div class='card m-b-30'>
                      <div class='card-body'>
                         <div class='container' style='text-align:center;'>
                            <div class='text'>
-                              <p style='margin-top: 5px; font-size: 18px;'>Total Transaksi Perbulan</p>
+                              <p style='margin-top: 5px; font-size: 18px;'>Transaksi Bulan Ini</p>
                            </div>
-                           <div>
-                              <h2 style='font-family: \"Slabserif\", serif; font-size: 24px;'>123</h2>
+                           <div  >
+                           <p style='font-family: sans-serif; font-size: 22px;'>Rp".$data_total_transaksi['PEMASUKAN']." (".$data_total_transaksi['TOTAL']." Transaksi)</p>
                            </div>
                         </div>
                      </div>
                   </div>
                </div>
 
-               <div class='col-md-12 col-xl-3' style='margin-top:20px;'>
+               <div class='col-md-12 col-xl-6' style='margin-top:20px;'>
                   <div class='card m-b-30'>
                      <div class='card-body'>
                         <div class='container' style='text-align:center;'>
@@ -108,7 +112,7 @@ while ($DATA = mysqli_fetch_array($QUERY)) {
                               <p style='margin-top: 5px; font-size: 18px;'>Transaksi Terbanyak</p>
                            </div>
                            <div>
-                              <h2 style='font-family: \"Slabserif\", serif; font-size: 24px;'>123</h2>
+                           <p style='font-family: sans-serif; font-size: 22px;'>".$data_user_transaksi['USERNAME']." (".$data_user_transaksi['TOTAL']." Transaksi)</p>
                            </div>
                         </div>
                      </div>
