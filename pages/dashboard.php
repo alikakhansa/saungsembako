@@ -16,7 +16,7 @@
 <?php
 $query_statistik1   = mysqli_query($koneksi,"SELECT count(*) AS total_barang FROM barang");
 $data_statistik1    = mysqli_fetch_array($query_statistik1);
-$query_statistik2   = mysqli_query($koneksi,"SELECT count(*) AS total_jenis_barang FROM jenis_barang");
+$query_statistik2   = mysqli_query($koneksi,"SELECT count(*) AS total_jenis FROM jenis_barang");
 $data_statistik2    = mysqli_fetch_array($query_statistik2);
 $query_statistik3   = mysqli_query($koneksi,"SELECT count(*) AS total_user FROM users");
 $data_statistik3    = mysqli_fetch_array($query_statistik3);
@@ -63,7 +63,7 @@ while ($DATA = mysqli_fetch_array($QUERY)) {
                               <p style='margin-top: 5px; font-size: 18px;'>Jenis Barang</p>
                            </div>
                            <div>
-                              <h2 style='font-family: \"Slabserif\", serif; font-size: 24px;'>".$data_statistik2['total_jenis_barang']."</h2>
+                              <h2 style='font-family: \"Slabserif\", serif; font-size: 24px;'>".$data_statistik2['total_jenis']."</h2>
                            </div>
                         </div>
                      </div>
