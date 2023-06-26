@@ -45,7 +45,7 @@
                      <td><?php echo $no; ?></td>
                      <td><?php echo $data['USERNAME']; ?></td>
                      <td><?php echo $data['EMAIL']; ?></td>
-                     <td><?php echo $data['PASSWORD']; ?></td>
+                     <td><b><?php echo str_repeat('*', strlen($data['PASSWORD'])); ?></b></td>
                      <td><?php echo $data['LEVEL']; ?></td>
                      <td>
                         <a href="index.php?page=user&aksi=edit&id=<?php echo $data['USERNAME'] ?>" class="btn btn-warning btn-xs"><i class="fas fa-edit"></i> Edit</a>

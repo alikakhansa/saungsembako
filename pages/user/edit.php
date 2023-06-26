@@ -47,7 +47,7 @@
          </div>
          <div class="form-group">
             <b style="color: black;"><label for="text">Password</label></b>
-            <input type="text" class="form-control" name="PASSWORD" style="color: black; width: 100%" value="<?php echo $PASSWORD; ?>" required>
+            <input type="password" class="form-control" name="PASSWORD" style="color: black; width: 100%" value="<?php echo $PASSWORD; ?>" required>
          </div>
          <div class="form-group">
             <b style="color: black;"><label for="text">Level</label></b>
