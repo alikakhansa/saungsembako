@@ -9,9 +9,6 @@
 			include 'konfirmasi.php';
 			break;
 		case 'detail':
-			include 'detail.php';
-			break;
-		case 'detailtransaksi':
 			include 'detailtransaksi.php';
 			break;
 		default:
