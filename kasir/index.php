@@ -113,7 +113,7 @@
                   @$PAGE = $_GET['page'];
                   ?>
                <a href="index.php"><i class="mdi mdi-airplay"></i>Dashboard</a>
-               <a href="?page=transaksi" <?php if ($PAGE=="transaksi") { ?> class="active" <?php  } ?>>Konfirmasi Transaksi</a>
+               <a href="?page=transaksi" <?php if ($PAGE=="transaksi") { ?> class="active" <?php  } ?>>Transaksi</a>
                <div class="dropdown">
                   <a href="#" style="margin-top: 50px;">Laporan</a>
                   <div class="dropdown-content">
