@@ -110,7 +110,7 @@
                </thead>
                <tbody>
                   <?php
-                     include '../../inc/koneksi.php';
+                     include '../inc/koneksi.php';
                      $query = mysqli_query($koneksi, "SELECT b.ID_BARANG, b.NAMA, b.HARGA, jb.KETERANGAN 'KATEGORI', b.IMG FROM `barang` b INNER JOIN `jenis_barang` jb ON b.ID_JENIS = jb.ID_JENIS")
                          or die(mysqli_error($koneksi));
                      
@@ -263,6 +263,6 @@
    }
 
    function addProduct(){
-   document.location = "./proses_tambah_barang.php?id_transaksi="+id_transaksi+"&id_barang="+id_barang+"&amount="+amount;
+   document.location = "../pages/transaksi/proses_tambah_barang.php?id_transaksi="+id_transaksi+"&id_barang="+id_barang+"&amount="+amount;
    }
   </script>

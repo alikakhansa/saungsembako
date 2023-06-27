@@ -114,13 +114,6 @@
                   ?>
                <a href="index.php"><i class="mdi mdi-airplay"></i>Dashboard</a>
                <a href="?page=transaksi" <?php if ($PAGE=="transaksi") { ?> class="active" <?php  } ?>>Transaksi</a>
-               <div class="dropdown">
-                  <a href="#" style="margin-top: 50px;">Laporan</a>
-                  <div class="dropdown-content">
-                     <a href="../laporan/Belanja Pengunjung.php" target="_blank">Laporan Belanja</a>
-                     <a href="../laporan/Penerimaan Toko.php" target="_blank">Laporan Penerimaan</a>
-                  </div>
-               </div>
             </div>
          </div>
          <?php include "../inc/menu.php" ?>
