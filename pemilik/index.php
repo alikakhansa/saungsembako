@@ -119,9 +119,8 @@
                <div class="dropdown">
                   <a href="#" style="margin-top: 50px;">Transaksi</a>
                   <div class="dropdown-content">
-                     <a href="#" target="_blank">Riwayat Transaksi</a>
-                     <a href="#" target="_blank">Cetak Transaksi</a>
-                     <a href="#" target="_blank">Cetak Pendapatan</a>
+                     <a href="../pages/laporan/riwayat.php">Riwayat Transaksi</a>
+                     <a href="../pages/laporan/cetak_transaksi.php" target="_blank">Cetak Transaksi</a>
                   </div>
                </div>
             </div>

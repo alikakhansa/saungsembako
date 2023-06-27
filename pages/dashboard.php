@@ -97,7 +97,7 @@ while ($DATA = mysqli_fetch_array($QUERY)) {
                               <p style='margin-top: 5px; font-size: 18px;'>Transaksi Bulan Ini</p>
                            </div>
                            <div  >
-                           <p style='font-family: sans-serif; font-size: 22px;'>Rp".$data_total_transaksi['PEMASUKAN']." (".$data_total_transaksi['TOTAL']." Transaksi)</p>
+                           <p style='font-family: sans-serif; font-size: 22px;'>Rp. ".$data_total_transaksi['PEMASUKAN'].",- (".$data_total_transaksi['TOTAL']." Transaksi)</p>
                            </div>
                         </div>
                      </div>
@@ -125,22 +125,81 @@ while ($DATA = mysqli_fetch_array($QUERY)) {
                <h3>$DATA2[EMAIL]</h3>
             </div>
 
-            <div class='row' style='width: 96%; margin: 10px auto;'>
-               <div class='col-md-12 col-xl-3' style='margin-top:20px;'>
+             <div class='row' style='width: 96%; margin: 10px auto;'>
+               <div class='col-md-12 col-xl-4' style='margin-top:20px;'>
                   <div class='card m-b-30'>
                      <div class='card-body'>
                         <div class='container' style='text-align:center;'>
                            <div class='text'>
-                              <p style='margin-top: 5px; font-size: 18px;'>Transaksi</p>
+                              <p style='margin-top: 5px; font-size: 18px;'>Total User</p>
                            </div>
                            <div>
-                              <h2 style='font-family: \"Slabserif\", serif; font-size: 24px; margin-top: 5px;'>".$data_statistik4['total_transaksi']."</h2>
+                              <p style='font-family: sans-serif; font-size: 22px;'>".$data_statistik3['total_user']." User</p>
                            </div>
                         </div>
                      </div>
                   </div>
                </div>
-            </div>
+
+               <div class='col-md-12 col-xl-4' style='margin-top:20px;'>
+                  <div class='card m-b-30'>
+                     <div class='card-body'>
+                        <div class='container' style='text-align:center;'>
+                           <div class='text'>
+                              <p style='margin-top: 5px; font-size: 18px;'>Jumlah Transaksi Bulan Ini</p>
+                           </div>
+                           <div>
+                           <p style='font-family: sans-serif; font-size: 22px;'>".$data_total_transaksi['TOTAL']." Transaksi</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <div class='col-md-12 col-xl-4' style='margin-top:20px;'>
+                  <div class='card m-b-30'>
+                     <div class='card-body'>
+                        <div class='container' style='text-align:center;'>
+                           <div class='text'>
+                              <p style='margin-top: 5px; font-size: 18px;'>Jumlah Transaksi Hari Ini</p>
+                           </div>
+                           <div>
+                           <p style='font-family: sans-serif; font-size: 22px;'>".$data_total_transaksi['TOTAL']." Transaksi</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <div class='col-md-12 col-xl-6' style='margin-top:20px;'>
+                  <div class='card m-b-30'>
+                     <div class='card-body'>
+                        <div class='container' style='text-align:center;'>
+                           <div class='text'>
+                              <p style='margin-top: 5px; font-size: 18px;'>Total Transaksi Bulan Ini</p>
+                           </div>
+                           <div  >
+                           <p style='font-family: sans-serif; font-size: 22px;'>Rp. ".$data_total_transaksi['PEMASUKAN'].",-</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <div class='col-md-12 col-xl-6' style='margin-top:20px;'>
+                  <div class='card m-b-30'>
+                     <div class='card-body'>
+                        <div class='container' style='text-align:center;'>
+                           <div class='text'>
+                              <p style='margin-top: 5px; font-size: 18px;'>Total Transaksi Hari Ini</p>
+                           </div>
+                           <div>
+                           <p style='font-family: sans-serif; font-size: 22px;'>Rp. ".$data_total_transaksi['PEMASUKAN'].",-</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
          ";
       }
    }
