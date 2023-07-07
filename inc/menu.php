@@ -7,11 +7,8 @@ switch ($PAGE) {
 	case 'user':
 		include '../pages/user/user.php';
 		break;
-	case 'laporan':
-		include '../laporan/Belanja Pengunjung.php';
-		break;
-	case 'laporan_terima':
-		include '../laporan/penerimaan_toko.php';
+	case 'riwayat':
+		include '../pages/riwayat/riwayat.php';
 		break;
 	case 'barang':
 		include '../pages/barang/barang.php';

@@ -56,7 +56,7 @@ $KEMBALI = $DATA_INFO['KEMBALI'];
             echo "<a class='btn btn-success' style='margin-bottom: 8px; margin-top: 20px; margin-right: 8px;' onclick=\"startPopup($TOTAL)\">Selesaikan Transaksi</a>";
             }
             echo "<a class='btn btn-danger' style='margin-bottom: 8px; margin-top: 20px; margin-right: 8px;' href='../pages/transaksi/update_status_transaksi.php?aksi=cancel&id=$ID' onclick=\"return confirm('Yakin ingin membatalkan transaksi ini?')\">Batalkan</a>";
-            echo "<a class='btn btn-primary' style='margin-bottom: 8px; margin-top: 20px; margin-right: 8px;' href='../pages/transaksi/tambah_barang.php?id=$ID'>Tambah Barang</a>";
+            echo "<a class='btn btn-primary' style='margin-bottom: 8px; margin-top: 20px; margin-right: 8px;' href='?page=transaksi&aksi=tambah&id=$ID'>Tambah Barang</a>";
           }
           // <!-- SATU TOMBOL INI CUMA MUNCUL KETIKA STATUS TRANSAKSI = DIBAYAR -->
           if ($STATUS == "DIBAYAR"){
@@ -86,7 +86,7 @@ $KEMBALI = $DATA_INFO['KEMBALI'];
                 <td>Rp<?php echo $data['HARGA']; ?></td>
                 <td><?php echo $data['KUANTITAS']; ?></td>
                 <td>Rp<?php echo $data['SUBTOTAL']; ?></td>
-                <td><img src="../../pages/barang/img/<?php echo $data['IMG']; ?>" width="70"></td>
+                <td><img src="../pages/barang/img/<?php echo $data['IMG']; ?>" width="70"></td>
                 <td><?php if($STATUS == "PROSES"){
                     $TEMPID = $data['ID_T_BARANG'];
                   echo "<a class='btn btn-danger' style='margin-bottom: 8px; margin-top: 20px; margin-right: 8px;' href='../pages/transaksi/proses_hapus_barang.php?id=$TEMPID&idt=$ID' onclick=\"return confirm('Yakin ingin menghapyus produk ini?')\">Hapus</a>";}?></td>
