@@ -2,7 +2,8 @@
 <html>
    <head>
       <title>Saung Sembako</title>
-      <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+       <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+       <link rel="icon" href="assets/images/icon.png">
    </head>
    <body>
       <header>

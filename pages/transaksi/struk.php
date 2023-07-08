@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="icon" href="../../assets/images/icon.png">
     <style>
         body {
             margin: 0;
