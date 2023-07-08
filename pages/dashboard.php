@@ -12,7 +12,6 @@
    }
 </style>
 
-<!-- Query Statistik -->
 <?php
 $USER = $_SESSION['USERNAME'];
 $LEVEL = $_SESSION['LEVEL'];
@@ -28,12 +27,9 @@ $query_user_transaksi = mysqli_query($koneksi, "SELECT USERNAME, COUNT(*) 'TOTAL
 $data_user_transaksi = mysqli_fetch_array($query_user_transaksi);
 $query_total_transaksi = mysqli_query($koneksi, "SELECT COUNT(*) 'TOTAL', COALESCE(SUM(TOTAL)) 'PEMASUKAN' FROM `transaksi` WHERE STATUS = 'DIBAYAR' AND YEAR(TANGGAL) = YEAR(NOW()) AND MONTH(TANGGAL) = MONTH(NOW())");
 $data_total_transaksi = mysqli_fetch_array($query_total_transaksi);
-
 $query_kasir = mysqli_query($koneksi, "SELECT (SELECT COUNT(*) FROM `transaksi` WHERE USERNAME = '$USER' AND YEAR(TANGGAL) = YEAR(NOW()) AND MONTH(TANGGAL) = MONTH(NOW())) AS `JumlahTransaksiBulanIni`, (SELECT COUNT(*) FROM `transaksi` WHERE USERNAME = '$USER' AND DATE(TANGGAL) = DATE(NOW()) AND STATUS = 'DIBAYAR') AS `JumlahTransaksiHariIni`, COALESCE((SELECT SUM(COALESCE(TOTAL, 0)) FROM `transaksi` WHERE USERNAME = '$USER' AND YEAR(TANGGAL) = YEAR(NOW()) AND MONTH(TANGGAL) = MONTH(NOW())), 0) AS `TotalTransaksiBulanIni`, COALESCE((SELECT SUM(COALESCE(TOTAL, 0)) FROM `transaksi` WHERE USERNAME = '$USER' AND DATE(TANGGAL) = DATE(NOW())),0) AS `TotalTransaksiHariIni`;");
 $data_kasir = mysqli_fetch_array($query_kasir);
-
 ?>
-<!-- /Query Statistik -->
 
 <?php  
 $QUERY = mysqli_query($koneksi, "SELECT * FROM users WHERE USERNAME='".$_SESSION['USERNAME']."'");
@@ -46,7 +42,10 @@ while ($DATA = mysqli_fetch_array($QUERY)) {
       if ($_SESSION['LEVEL'] == "PEMILIK") {
          echo "
             <div class='alert alert-info alert-dismissible fade show' role='alert' style='width: 95%; margin: 10px auto;'>
-               <h3>$DATA2[EMAIL]</h3>
+               <h3>
+               Halo, $DATA2[USERNAME]! <font size='5px'>($DATA2[EMAIL])</font><br>
+               Selamat datang di Dashboard Admin!
+               </h3>
             </div>
 
             <div class='row' style='width: 96%; margin: 10px auto;'>

@@ -15,7 +15,6 @@
       $LEVEL = $ROW['LEVEL'];
    }
    ?>
-<!-- Page-Title -->
 <div class="row" style="width: 92%; margin: 0 auto; margin-top: 20px;">
    <div class="col-sm-12">
       <div class="page-title-box">

@@ -13,10 +13,6 @@ if (@$_SESSION['LEVEL']) {
 if(isset($_POST['masuk'])) {
     $username = $_POST['USERNAME'];
     $password = $_POST['PASSWORD'];
-    
-    // Lakukan validasi dan proses login di sini
-    
-    // Set session dan redirect ke halaman yang sesuai
 }
 ?>
 
@@ -53,9 +49,7 @@ if(isset($_POST['masuk'])) {
                     <button type="submit" class="btn btn-primary" name="masuk" value="Login" style="width: 110%">Login</button>
                 </div>
                 <div>
-                    <!-- Pesan error atau notifikasi bisa ditampilkan di sini -->
                 </div>
-                <span class="form-redirect">Belum punya akun? Daftar <a href="#">di sini</a></span>
             </form>
         </div>
     </div>

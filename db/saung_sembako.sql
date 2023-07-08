@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 21 Jun 2023 pada 04.08
+-- Waktu pembuatan: 08 Jul 2023 pada 11.12
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.28
 
@@ -40,8 +40,7 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`ID_BARANG`, `ID_JENIS`, `NAMA`, `HARGA`, `IMG`) VALUES
-(2, 2, 'Royco 1 Renceng', 14000, 'roycorenceng.png'),
-(3, 1, 'Indomie Goreng', 3500, 'indomie-goreng.jpg');
+(5, 1, 'Mie Indomie Goreng Aceh', 3500, 'mie.jpg');
 
 -- --------------------------------------------------------
 
@@ -60,7 +59,8 @@ CREATE TABLE `jenis_barang` (
 
 INSERT INTO `jenis_barang` (`ID_JENIS`, `KETERANGAN`) VALUES
 (1, 'Produk Instan'),
-(2, 'Bumbu Dapur');
+(2, 'Bumbu Dapur'),
+(4, 'tess');
 
 -- --------------------------------------------------------
 
@@ -83,9 +83,12 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`ID_TRANSAKSI`, `USERNAME`, `TANGGAL`, `TOTAL`, `DIBAYAR`, `KEMBALI`, `STATUS`) VALUES
-(1, 'kasir', '2023-06-19 04:27:32', 77000, 80000, 3000, 'DIBAYAR'),
-(2, 'kasir', '2023-06-19 05:04:53', 0, 0, 0, 'DIBATALKAN'),
-(3, 'kasir', '2023-06-19 04:59:07', 82250, 0, 0, 'PROSES');
+(1, 'kasir', '2023-06-18 17:00:00', 77000, 80000, 3000, 'DIBAYAR'),
+(2, 'kasir', '2023-06-18 17:00:00', 0, 0, 0, 'DIBATALKAN'),
+(3, 'kasir', '2023-06-18 17:00:00', 82250, 0, 0, 'DIBATALKAN'),
+(26, 'kasir', '2023-06-26 17:00:00', 42000, 0, 0, 'PROSES'),
+(27, 'kasir', '2023-06-26 17:00:00', 0, 0, 0, 'DIBATALKAN'),
+(28, 'kasir', '2023-07-08 09:12:06', 3500, 3500, 0, 'DIBAYAR');
 
 -- --------------------------------------------------------
 
@@ -106,10 +109,14 @@ CREATE TABLE `transaksi_barang` (
 --
 
 INSERT INTO `transaksi_barang` (`ID_TRANSAKSI_BARANG`, `ID_TRANSAKSI`, `ID_BARANG`, `KUANTITAS`, `HARGA`) VALUES
-(2, 1, 3, 10, 3500),
-(3, 1, 2, 3, 14000),
+(2, 1, 5, 10, 3500),
+(3, 1, NULL, 3, 14000),
 (4, 3, NULL, 7, 1750),
-(5, 3, 2, 5, 14000);
+(5, 3, 5, 5, 14000),
+(7, 26, 5, 4, 3500),
+(8, 26, 5, 4, 3500),
+(10, 26, 5, 4, 3500),
+(12, 28, 5, 1, 3500);
 
 -- --------------------------------------------------------
 
@@ -130,7 +137,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`USERNAME`, `EMAIL`, `PASSWORD`, `LEVEL`) VALUES
 ('admin', 'admin@saungsembako.com', '1234567890', 'PEMILIK'),
-('kasir', 'kasir@saungsembako.com', 'qwertyuiop', 'KASIR');
+('kasir', 'kasir@saungsembako.com', 'qwertyuiop', 'KASIR'),
+('tes', 'alikakf19@gmail.com', 'alika123', 'PEMILIK');
 
 --
 -- Indexes for dumped tables
@@ -178,25 +186,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `ID_BARANG` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID_BARANG` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `jenis_barang`
 --
 ALTER TABLE `jenis_barang`
-  MODIFY `ID_JENIS` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID_JENIS` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `ID_TRANSAKSI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID_TRANSAKSI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT untuk tabel `transaksi_barang`
 --
 ALTER TABLE `transaksi_barang`
-  MODIFY `ID_TRANSAKSI_BARANG` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID_TRANSAKSI_BARANG` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

@@ -21,8 +21,7 @@
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
       <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
-      <style>
-         /* Gaya CSS untuk tabel */
+         <style>
          table {
          border-collapse: collapse;
          width: 80%;
@@ -48,7 +47,6 @@
          margin: 0 auto;
          border-radius: 5px;
          }
-         /* Gaya CSS untuk kotak pencarian */
          #search-box {
          margin-bottom: 10px;
          }
@@ -63,33 +61,49 @@
          align-items: center;
          }
          .menu a {
-         margin-right: 10px; /* Jarak antara elemen menu */
+         margin-right: 10px; 
          }
          .dropdown {
          position: relative;
+         }
+         .dropdown .dropbtn {
+         padding: 0;
+         border: none;
+         background: none;
+         cursor: pointer;
+         }
+         .dropdown:hover .dropdown-content {
+         display: block;
          }
          .dropdown-content {
          display: none;
          position: absolute;
          top: 100%;
-         left: 0;
-         width: 200px; /* Lebar kotak dropdown */
-         padding: 10px; /* Jarak antara isi dropdown dengan tepi kotak */
-         background-color: #fff; /* Warna latar belakang kotak dropdown */
-         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Bayangan pada kotak dropdown */
-         z-index: 1; /* Menempatkan kotak dropdown di atas elemen lain */
+         right: 0;
+         min-width: 200px;
+         padding: 10px; 
+         background-color: #fff; 
+         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+         z-index: 1; 
+         border-radius: 5px;
+         margin-top: 2px;
          }
          .dropdown-content li {
-         list-style-type: none; /* Menghilangkan bullet pada daftar dropdown */
+         list-style-type: none; 
          }
          .dropdown-content a {
          display: block;
          padding: 5px 0;
-         color: #333; /* Warna teks pada dropdown */
+         color: #333; 
          text-decoration: none;
          }
          .dropdown-content a:hover {
-         background-color: #fff; /* Warna latar belakang saat dihover */
+         background-color: transparent;
+         }
+         .sticky-header {
+         position: sticky;
+         top: 0;
+         background-color: #ffffff;
          }
       </style>
    </head>

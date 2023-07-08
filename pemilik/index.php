@@ -22,7 +22,6 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
       <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
       <style>
-         /* Gaya CSS untuk tabel */
          table {
          border-collapse: collapse;
          width: 80%;
@@ -48,7 +47,6 @@
          margin: 0 auto;
          border-radius: 5px;
          }
-         /* Gaya CSS untuk kotak pencarian */
          #search-box {
          margin-bottom: 10px;
          }
@@ -63,33 +61,49 @@
          align-items: center;
          }
          .menu a {
-         margin-right: 10px; /* Jarak antara elemen menu */
+         margin-right: 10px;
          }
          .dropdown {
          position: relative;
+         }
+         .dropdown .dropbtn {
+         padding: 0;
+         border: none;
+         background: none;
+         cursor: pointer;
+         }
+         .dropdown:hover .dropdown-content {
+         display: block;
          }
          .dropdown-content {
          display: none;
          position: absolute;
          top: 100%;
-         left: 0;
-         width: 200px; /* Lebar kotak dropdown */
-         padding: 10px; /* Jarak antara isi dropdown dengan tepi kotak */
-         background-color: #fff; /* Warna latar belakang kotak dropdown */
-         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Bayangan pada kotak dropdown */
-         z-index: 1; /* Menempatkan kotak dropdown di atas elemen lain */
+         right: 0;
+         min-width: 200px;
+         padding: 10px; 
+         background-color: #fff; 
+         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+         z-index: 1; 
+         border-radius: 5px;
+         margin-top: 2px;
          }
          .dropdown-content li {
-         list-style-type: none; /* Menghilangkan bullet pada daftar dropdown */
+         list-style-type: none; 
          }
          .dropdown-content a {
          display: block;
          padding: 5px 0;
-         color: #333; /* Warna teks pada dropdown */
+         color: #333; 
          text-decoration: none;
          }
          .dropdown-content a:hover {
-         background-color: #fff; /* Warna latar belakang saat dihover */
+         background-color: transparent;
+         }
+         .sticky-header {
+         position: sticky;
+         top: 0;
+         background-color: #ffffff;
          }
       </style>
    </head>
@@ -100,8 +114,8 @@
                <img src="../assets/images/logoheader.png" alt="Logo">
             </div>
             <div class="dropdown">
-               <button class="dropbtn"> <img src="../assets/images/user.png" alt="Logo 2" style="margin-right: 50px;"></button>
-               <div class="dropdown-content">
+               <button class="dropbtn" onclick="toggleDropdown()"> <img src="../assets/images/user.png" alt="Logo 2" style="margin-right: 50px;"></button>
+               <div class="dropdown-content" id="dropdownMenu">
                   <a href="../inc/logout.php">Logout</a>
                </div>
             </div>
@@ -126,11 +140,9 @@
             </div>
          </div>
          <?php include "../inc/menu.php" ?>
-          <?php include "../inc/kode.php" ?>
+         <?php include "../inc/kode.php" ?>
       </header>
-                
    </body>
-   
    <script>
       var header = document.querySelector('.sticky-header');
       
@@ -157,6 +169,24 @@
       function toggleHamburgerMobile() {
           var div = document.getElementById("navigation");
           div.classList.toggle("mobile-hide");
+      }
+      
+      function toggleDropdown() {
+          var dropdown =document.getElementById("dropdownMenu");
+          dropdown.classList.toggle("show");
+      }
+      
+      window.onclick = function(event) {
+          if (!event.target.matches('.dropbtn')) {
+              var dropdowns = document.getElementsByClassName("dropdown-content");
+              var i;
+              for (i = 0; i < dropdowns.length; i++) {
+                  var openDropdown = dropdowns[i];
+                  if (openDropdown.classList.contains('show')) {
+                      openDropdown.classList.remove('show');
+                  }
+              }
+          }
       }
       
    </script>
